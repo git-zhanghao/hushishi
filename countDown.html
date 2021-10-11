@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var timer = null;
+			var clock = function(){
+				var oDate = new Date(),
+					futureTime = new Date("2021/10/16"),
+					passTime = new Date("2021/10/7 21:00:00");
+				var calcTime =  oDate.getTime() - passTime.getTime();
+				var endTime = futureTime.getTime() - oDate.getTime(),
+					oDay = Math.floor(endTime/(1000*60*60*24)),  //计算天数
+			        oHour = Math.floor(endTime/(1000*60*60)%24),  //计算小时数
+			        oMin = Math.floor(endTime/(1000*60)%60),  //计算分钟数
+			        oSecond = Math.floor(endTime/1000%60);  //计算秒数
+			    return "我们分开了" + parseInt((calcTime / 1000)) + "秒" + "我们还有" + oDay + "天" + oHour + "小时" + oMin + "分" + oSecond + "秒就能见到了";  //返回倒计时的字符串
+			};
+			setInterval(function(){
+				document.body.innerHTML = clock();
+			},1000)
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
